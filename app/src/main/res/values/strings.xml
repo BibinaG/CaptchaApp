@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">CaptaApp</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="don_t_have_and_account_register_now">Don\'t have account ?</string>
+    <string name="register">Register</string>
+    <string name="full_name">Full Name</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="i_am_not_robot">I am not robot</string>
+
+
+    <string name="API_SITE_KEY">6LeeorkgAAAAAFny-483PjKVxUBkjZsLjxtEq0KP</string>
+
+
+    <string name="captcha_header">Captcha Dialog</string>
+    <string name="captcha_description">Developer settings are for development use only. If you enable these settings, your device and any apps on it may crash or experience errors. Please be careful when using these settings.</string>
+    <string name="captcha_verification_code_prompt">Verification code:</string>
+    <string name="captcha_input_message">To continue, enter the verification code from the image above:</string>
+</resources>

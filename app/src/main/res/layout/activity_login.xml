@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/loginImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/dp_8_x_6"
+            android:src="@drawable/ic_login__screen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvHello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8_x_3"
+            android:text="@string/login"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginImage" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4_x_3"
+            android:layout_marginEnd="@dimen/dp_8_x_6"
+            android:lineSpacingExtra="@dimen/dp_8_x_1"
+            android:text="This is random text which will be replace in future by other login details form"
+            android:textColor="@color/black"
+            android:textSize="@dimen/mini_text"
+            android:textStyle="normal"
+            android:visibility="gone"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvHello"
+            app:layout_constraintTop_toBottomOf="@id/tvHello" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tieEmail"
+            style="@style/OutlineTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_8_x_3"
+            android:layout_marginTop="@dimen/dp_8_x_5"
+            app:boxCornerRadiusBottomEnd="@dimen/dp_4_x_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            app:startIconDrawable="@drawable/ic_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tilEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiePassword"
+            style="@style/OutlineTextInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8_x_1"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="@id/tieEmail"
+            app:layout_constraintStart_toStartOf="@id/tieEmail"
+            app:layout_constraintTop_toBottomOf="@id/tieEmail"
+            app:startIconDrawable="@drawable/ic_lock">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tilPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <LinearLayout
+            android:id="@+id/liRememberMe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_8_x_3"
+            android:layout_marginTop="@dimen/dp_8_x_2"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tiePassword">
+
+            <CheckBox
+                android:id="@+id/cbRememberMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4_x_3"
+                android:text="@string/i_am_not_robot"
+                android:textSize="@dimen/mini_text"
+                app:layout_constraintStart_toStartOf="@id/tieEmail" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivCaptcha"
+            android:layout_width="80dp"
+            android:layout_height="0dp"
+            android:background="?selectableItemBackground"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/dp_8_x_1"
+            android:src="@drawable/recaptcha_logo"
+            android:text="@string/forgot_password"
+            android:textColor="@color/purple_200"
+            android:textSize="@dimen/mini_text"
+            app:layout_constraintBottom_toBottomOf="@id/liRememberMe"
+            app:layout_constraintEnd_toEndOf="@id/tieEmail"
+            app:layout_constraintTop_toTopOf="@id/liRememberMe" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_4_x_15"
+            android:layout_marginTop="@dimen/dp_8_x_2"
+            android:text="@string/login"
+            android:textAllCaps="false"
+            app:cornerRadius="@dimen/dp_8_x_2"
+            app:layout_constraintEnd_toEndOf="@id/tieEmail"
+            app:layout_constraintStart_toStartOf="@id/tieEmail"
+            app:layout_constraintTop_toBottomOf="@id/liRememberMe" />
+
+
+        <TextView
+            android:id="@+id/Account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_4_x_3"
+            android:layout_marginStart="-70dp"
+            android:layout_marginTop="36dp"
+            android:padding="@dimen/dp_8_x_1"
+            android:textColor="@color/black"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@id/btnLogin"
+            app:layout_constraintStart_toStartOf="@id/btnLogin"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+            tools:text="@string/don_t_have_and_account_register_now" />
+
+        <TextView
+            android:id="@+id/tvRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:padding="@dimen/dp_8_x_1"
+            android:text="@string/register"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/Account"
+            app:layout_constraintStart_toEndOf="@id/Account"
+            app:layout_constraintTop_toTopOf="@id/Account"
+            app:layout_constraintVertical_bias="1" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

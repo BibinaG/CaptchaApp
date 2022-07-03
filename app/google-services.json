@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1068548440431",
+    "project_id": "captaapp-f7b13",
+    "storage_bucket": "captaapp-f7b13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068548440431:android:77c0055bff8280645ea89a",
+        "android_client_info": {
+          "package_name": "com.aiextech.captaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068548440431-q8re3700qqr5kic0gf5bido0ropnpcqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXfS0ilTPRJMYURA4z8yzTjZs-dLaO5Ro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068548440431-q8re3700qqr5kic0gf5bido0ropnpcqq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
