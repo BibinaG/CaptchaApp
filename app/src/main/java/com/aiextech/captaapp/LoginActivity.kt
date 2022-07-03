@@ -5,7 +5,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.util.Log
 import android.view.View
 import android.view.Window
@@ -14,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.aiextech.captaapp.databinding.ActivityLoginBinding
+import com.aiextech.captaapp.utils.CaptchaUI
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.safetynet.SafetyNet
@@ -42,9 +42,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        if (binding.cbRememberMe.isChecked) {
-            showCaptchaDialog()
-        }
         binding.btnLogin.setOnClickListener {
             Email = binding.tilEmail.text.toString()
             Password = binding.tilPassword.text.toString()
@@ -52,9 +49,6 @@ class LoginActivity : AppCompatActivity() {
                 firebaseAuth()
             }
         }
-        binding.btnLogin.isEnabled = false
-        Toast.makeText(this, "Verification is required !", Toast.LENGTH_SHORT).show()
-
         binding.tvRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
@@ -121,6 +115,18 @@ class LoginActivity : AppCompatActivity() {
         }
         noBtn.setOnClickListener { dialog.dismiss() }
         dialog.show()
+    }
+
+    private fun capFunctions() {
+        CaptchaUI.Builder(this)
+            .setCaptchaTextColor(resources.getColor(R.color.purple_200))
+            .setCaptchaLineColor(resources.getColor(R.color.purple_500))
+            .setCaptchaCodeLength(4)
+            .setCaptchaPositiveText("OK")
+            .setCaptchaPositiveTextColor(Color.WHITE)
+            .setCaptchaNegativeText("NOPE")
+            .setCaptchaButtonListener(this.)
+            .build()
     }
 
 
