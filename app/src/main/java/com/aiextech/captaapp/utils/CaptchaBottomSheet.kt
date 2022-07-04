@@ -58,15 +58,19 @@ class CaptchaBottomSheet : BottomSheetDialogFragment() {
                 Toast.makeText(context, "Incorrect verification code, please re-enter", Toast.LENGTH_SHORT).show()
             }
         }
-
         val captchaNegativeButton = fragmentView.findViewById<Button>(R.id.captcha_negative_button)
         arguments?.getInt(CaptchaUI.EXTRA_CAPTCHA_NEGATIVE_BUTTON_TEXT_COLOR, DefaultAttributes.CAPTCHA_NEGATIVE_BUTTON_TEXT_COLOR)
             ?.let { captchaNegativeButton.setTextColor(it) }
+
         arguments?.getString(CaptchaUI.EXTRA_CAPTCHA_NEGATIVE_BUTTON_TEXT, DefaultAttributes.CAPTCHA_NEGATIVE_BUTTON_TEXT)
             ?.let { captchaNegativeButton.text = it }
         captchaNegativeButton.setOnClickListener {
-            callback.onNegativeButtonClicked()
-            this.dismiss()
+            try {
+                callback.onNegativeButtonClicked()
+            } catch (ex: Exception) {
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show()
+            }
+
         }
         return fragmentView
     }

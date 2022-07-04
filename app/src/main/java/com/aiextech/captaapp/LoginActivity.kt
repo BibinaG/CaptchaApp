@@ -1,12 +1,10 @@
 package com.aiextech.captaapp
 
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.view.Window
 import android.widget.Button
 import android.widget.TextView
@@ -14,21 +12,21 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.aiextech.captaapp.databinding.ActivityLoginBinding
 import com.aiextech.captaapp.utils.CaptchaUI
-import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.common.api.CommonStatusCodes
-import com.google.android.gms.safetynet.SafetyNet
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
-import java.util.concurrent.Executor
+import com.jacknkiarie.captchaui.CaptchaLayout
 
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(), CaptchaLayout.OnButtonClickedListener {
     private lateinit var binding: ActivityLoginBinding;
     private var fAuth = FirebaseAuth.getInstance()
     private lateinit var Email: String
     private lateinit var Password: String
 
+    companion object {
+        fun newIntent(context: Context): Intent {
+            return Intent(context, LoginActivity::class.java)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +35,6 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar?.title = "Login"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.elevation = 0f
-        supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#FFFFFFFF")))
         initView()
     }
 
@@ -53,7 +50,8 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
         binding.ivCaptcha.setOnClickListener {
-            showCaptchaDialog()
+//            showCaptchaDialog()
+            capFunctions()
         }
     }
 
@@ -106,8 +104,17 @@ class LoginActivity : AppCompatActivity() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_captcha)
-        val body = dialog.findViewById(R.id.captcha_header) as TextView
-        body.text = title
+//        val body = dialog.findViewById(R.id.captcha_header) as TextView
+//        body.text = title
+        CaptchaUI.Builder(this)
+//            .setCaptchaTextColor(resources.getColor(R.color.purple_200))
+//            .setCaptchaLineColor(resources.getColor(R.color.purple_500))
+            .setCaptchaCodeLength(4)
+            .setCaptchaPositiveText("OK")
+            .setCaptchaPositiveTextColor(Color.WHITE)
+            .setCaptchaNegativeText("NOPE")
+            .setCaptchaButtonListener(this)
+            .build()
         val yesBtn = dialog.findViewById(R.id.captcha_positive_button) as Button
         val noBtn = dialog.findViewById(R.id.captcha_negative_button) as TextView
         yesBtn.setOnClickListener {
@@ -125,36 +132,16 @@ class LoginActivity : AppCompatActivity() {
             .setCaptchaPositiveText("OK")
             .setCaptchaPositiveTextColor(Color.WHITE)
             .setCaptchaNegativeText("NOPE")
-            .setCaptchaButtonListener(this.)
+            .setCaptchaButtonListener(this)
             .build()
     }
 
+    override fun onNegativeButtonClicked() {
+        TODO("Not yet implemented")
+    }
 
-    fun onClick(view: View) {
-        if (binding.cbRememberMe.isChecked) {
-            SafetyNet.getClient(this)
-                .verifyWithRecaptcha("6LeeorkgAAAAAFny-483PjKVxUBkjZsLjxtEq0KP")
-                .addOnSuccessListener(this as Executor, OnSuccessListener { response ->
-                    // Indicates communication with reCAPTCHA service was
-                    // successful.
-                    val userResponseToken = response.tokenResult
-                    if (response.tokenResult?.isNotEmpty() == true) {
-                        // Validate the user response token using the
-                        // reCAPTCHA siteverify API.
-                    }
-                })
-                .addOnFailureListener(this as Executor, OnFailureListener { e ->
-                    if (e is ApiException) {
-                        // An error occurred when communicating with the
-                        // reCAPTCHA service. Refer to the status code to
-                        // handle the error appropriately.
-                        Log.d("d", "Error: ${CommonStatusCodes.getStatusCodeString(e.statusCode)}")
-                    } else {
-                        // A different, unknown type of error occurred.
-                        Log.d("b", "Error: ${e.message}")
-                    }
-                })
+    override fun onVerificationCodeVerified() {
+        Toast.makeText(this, "Everything is awesome", Toast.LENGTH_SHORT).show()
 
-        }
     }
 }

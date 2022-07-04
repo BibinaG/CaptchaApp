@@ -11,8 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:fontFamily="monospace"
         android:padding="10dp"
-        android:text="@string/captcha_header" />
+        android:text="@string/captcha_header"
+        android:textStyle="bold" />
 
     <View
         android:id="@+id/captcha_header_divider"
@@ -34,8 +36,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/captcha_description"
-        android:text="@string/captcha_verification_code_prompt"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/dp_8_x_1"
+        android:text="@string/captcha_verification_code_prompt" />
 
     <com.jacknkiarie.captchaui.CaptchaView
         android:id="@+id/captcha_view"
@@ -86,5 +90,5 @@
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:text="@android:string/ok"
-        app:backgroundTint="@color/purple_200" />
+        app:backgroundTint="@color/purple_500" />
 </RelativeLayout>
