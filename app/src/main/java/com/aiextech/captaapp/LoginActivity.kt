@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.jacknkiarie.captchaui.CaptchaLayout
 
 
-class LoginActivity : AppCompatActivity(), CaptchaLayout.OnButtonClickedListener {
+class LoginActivity : AppCompatActivity(){
     private lateinit var binding: ActivityLoginBinding;
     private var fAuth = FirebaseAuth.getInstance()
     private lateinit var Email: String
@@ -51,7 +51,6 @@ class LoginActivity : AppCompatActivity(), CaptchaLayout.OnButtonClickedListener
         }
         binding.ivCaptcha.setOnClickListener {
 //            showCaptchaDialog()
-            capFunctions()
         }
     }
 
@@ -99,49 +98,6 @@ class LoginActivity : AppCompatActivity(), CaptchaLayout.OnButtonClickedListener
         }
     }
 
-    private fun showCaptchaDialog() {
-        val dialog = Dialog(this)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(false)
-        dialog.setContentView(R.layout.dialog_captcha)
-//        val body = dialog.findViewById(R.id.captcha_header) as TextView
-//        body.text = title
-        CaptchaUI.Builder(this)
-//            .setCaptchaTextColor(resources.getColor(R.color.purple_200))
-//            .setCaptchaLineColor(resources.getColor(R.color.purple_500))
-            .setCaptchaCodeLength(4)
-            .setCaptchaPositiveText("OK")
-            .setCaptchaPositiveTextColor(Color.WHITE)
-            .setCaptchaNegativeText("NOPE")
-            .setCaptchaButtonListener(this)
-            .build()
-        val yesBtn = dialog.findViewById(R.id.captcha_positive_button) as Button
-        val noBtn = dialog.findViewById(R.id.captcha_negative_button) as TextView
-        yesBtn.setOnClickListener {
-            dialog.dismiss()
-        }
-        noBtn.setOnClickListener { dialog.dismiss() }
-        dialog.show()
-    }
 
-    private fun capFunctions() {
-        CaptchaUI.Builder(this)
-            .setCaptchaTextColor(resources.getColor(R.color.purple_200))
-            .setCaptchaLineColor(resources.getColor(R.color.purple_500))
-            .setCaptchaCodeLength(4)
-            .setCaptchaPositiveText("OK")
-            .setCaptchaPositiveTextColor(Color.WHITE)
-            .setCaptchaNegativeText("NOPE")
-            .setCaptchaButtonListener(this)
-            .build()
-    }
 
-    override fun onNegativeButtonClicked() {
-        TODO("Not yet implemented")
-    }
-
-    override fun onVerificationCodeVerified() {
-        Toast.makeText(this, "Everything is awesome", Toast.LENGTH_SHORT).show()
-
-    }
 }

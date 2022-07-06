@@ -19,4 +19,5 @@
     <string name="captcha_description">For security reason testing if you or human or bot.</string>
     <string name="captcha_verification_code_prompt">Verification code:</string>
     <string name="captcha_input_message">To continue, enter the verification code from the image above:</string>
+    <string name="required">required</string>
 </resources>

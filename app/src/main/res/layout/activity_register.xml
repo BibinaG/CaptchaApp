@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp_8_x_3"
             android:layout_marginTop="@dimen/dp_8_x_4"
+            android:fontFamily="@font/acme"
             android:text="@string/register"
             android:textColor="@color/black"
             android:textSize="@dimen/x_xxx_large"
@@ -52,6 +53,8 @@
             style="@style/OutlineTextInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:helperText="@string/required"
+            app:helperTextTextColor="@color/red"
             android:layout_marginTop="@dimen/dp_8_x_1"
             app:layout_constraintEnd_toEndOf="@id/tieFullName"
             app:layout_constraintStart_toStartOf="@id/tieFullName"
@@ -72,7 +75,11 @@
             style="@style/OutlineTextInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
             android:layout_marginTop="@dimen/dp_8_x_1"
+            app:helperText="@string/required"
+            app:helperTextTextColor="@color/red"
             app:layout_constraintEnd_toEndOf="@id/tieFullName"
             app:layout_constraintStart_toStartOf="@id/tieFullName"
             app:layout_constraintTop_toBottomOf="@id/tieEmail"
@@ -85,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
-                android:inputType="textPassword" />
+                android:maxLength="10" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -109,14 +116,43 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
-            android:id="@+id/cbTermsConditions"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:id="@+id/liRememberMe"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_8_x_1"
-            android:minWidth="0dp"
-            app:layout_constraintStart_toStartOf="@id/tieFullName"
-            app:layout_constraintTop_toBottomOf="@id/tieConPassword" />
+            android:layout_margin="@dimen/dp_8_x_3"
+            android:layout_marginTop="@dimen/dp_8_x_2"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tieConPassword">
+
+            <CheckBox
+                android:id="@+id/cbRememberMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8_x_1"
+                android:layout_marginTop="@dimen/dp_4_x_3"
+                android:text="@string/i_am_not_robot"
+                android:textColor="@color/black"
+                android:textSize="@dimen/mini_text"
+                app:layout_constraintStart_toStartOf="@id/tieEmail" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivCaptcha"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:background="?selectableItemBackground"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/dp_8_x_1"
+            android:src="@drawable/recaptcha_logo"
+            android:text="@string/forgot_password"
+            android:textColor="@color/purple_200"
+            android:textSize="@dimen/mini_text"
+            app:layout_constraintBottom_toBottomOf="@id/liRememberMe"
+            app:layout_constraintEnd_toEndOf="@id/tieEmail"
+            app:layout_constraintTop_toTopOf="@id/liRememberMe" />
 
 
         <com.google.android.material.button.MaterialButton
@@ -130,7 +166,7 @@
             app:layout_constrainedWidth="true"
             app:layout_constraintEnd_toEndOf="@id/tieEmail"
             app:layout_constraintStart_toStartOf="@id/tieEmail"
-            app:layout_constraintTop_toBottomOf="@id/cbTermsConditions" />
+            app:layout_constraintTop_toBottomOf="@id/ivCaptcha" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

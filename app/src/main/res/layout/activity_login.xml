@@ -99,6 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_8_x_3"
             android:layout_marginTop="@dimen/dp_8_x_2"
+            android:visibility="gone"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/tiePassword">
 
@@ -146,24 +147,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/dp_4_x_3"
-            android:layout_marginStart="-70dp"
+            android:layout_marginStart="-40dp"
             android:layout_marginTop="36dp"
-            android:padding="@dimen/dp_8_x_1"
             android:textColor="@color/black"
+            android:padding="6dp"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="@id/btnLogin"
+            android:text="@string/don_t_have_and_account_register_now"
+            android:textSize="@dimen/mini_text"
             app:layout_constraintStart_toStartOf="@id/btnLogin"
+            app:layout_constraintEnd_toStartOf="@+id/tvRegister"
             app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-            tools:text="@string/don_t_have_and_account_register_now" />
+            app:layout_constraintHorizontal_chainStyle="packed" />
 
         <TextView
             android:id="@+id/tvRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:padding="@dimen/dp_8_x_1"
-            android:text="@string/register"
+            android:text="Register Now"
             android:textColor="@color/black"
+            android:padding="6dp"
+            android:textSize="@dimen/mini_text"
+            app:layout_constraintEnd_toEndOf="@+id/btnLogin"
             app:layout_constraintBottom_toBottomOf="@id/Account"
             app:layout_constraintStart_toEndOf="@id/Account"
             app:layout_constraintTop_toTopOf="@id/Account"
