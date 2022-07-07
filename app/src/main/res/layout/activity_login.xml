@@ -147,17 +147,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/dp_4_x_3"
-            android:layout_marginStart="-40dp"
-            android:layout_marginTop="36dp"
-            android:textColor="@color/black"
+            android:layout_marginTop="12dp"
             android:padding="6dp"
-            android:visibility="visible"
             android:text="@string/don_t_have_and_account_register_now"
+            android:textColor="@color/black"
             android:textSize="@dimen/mini_text"
-            app:layout_constraintStart_toStartOf="@id/btnLogin"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/tvRegister"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-            app:layout_constraintHorizontal_chainStyle="packed" />
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@id/btnLogin"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
         <TextView
             android:id="@+id/tvRegister"

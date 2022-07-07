@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1068548440431",
-    "project_id": "captaapp-f7b13",
-    "storage_bucket": "captaapp-f7b13.appspot.com"
+    "project_number": "994563724199",
+    "project_id": "captchademo-74eea",
+    "storage_bucket": "captchademo-74eea.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1068548440431:android:77c0055bff8280645ea89a",
+        "mobilesdk_app_id": "1:994563724199:android:3aee122abe456580a55c82",
         "android_client_info": {
           "package_name": "com.aiextech.captaapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1068548440431-q8re3700qqr5kic0gf5bido0ropnpcqq.apps.googleusercontent.com",
+          "client_id": "994563724199-r7o3gttj87okm952rh48fuqib56oeavm.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBXfS0ilTPRJMYURA4z8yzTjZs-dLaO5Ro"
+          "current_key": "AIzaSyBSFXgcpb0EmJxeYKS1jQSbDQDZBh5sMDY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1068548440431-q8re3700qqr5kic0gf5bido0ropnpcqq.apps.googleusercontent.com",
+              "client_id": "994563724199-r7o3gttj87okm952rh48fuqib56oeavm.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
