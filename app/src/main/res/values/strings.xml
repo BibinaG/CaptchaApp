@@ -20,4 +20,9 @@
     <string name="captcha_verification_code_prompt">Verification code:</string>
     <string name="captcha_input_message">To continue, enter the verification code from the image above:</string>
     <string name="required">required</string>
+
+    <string name="lowercase_letters">Lowercase Letters</string>
+    <string name="uppercase_letters">Uppercase Letters</string>
+    <string name="digits">Digits</string>
+    <string name="special_characters">Special Characters</string>
 </resources>

@@ -95,6 +95,17 @@
                 android:maxLength="10" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/tvStrongPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Strong Password"
+            android:textColor="@color/green"
+            android:visibility="visible"
+            android:layout_marginEnd="@dimen/dp_8_x_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tiePassword"/>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tieConPassword"
             style="@style/OutlineTextInput"
@@ -103,7 +114,7 @@
             android:layout_marginTop="@dimen/dp_8_x_1"
             app:layout_constraintEnd_toEndOf="@id/tieFullName"
             app:layout_constraintStart_toStartOf="@id/tieFullName"
-            app:layout_constraintTop_toBottomOf="@id/tiePassword"
+            app:layout_constraintTop_toBottomOf="@id/tvStrongPassword"
             app:passwordToggleEnabled="true"
             app:startIconDrawable="@drawable/ic_lock"
             app:startIconTint="@color/black">

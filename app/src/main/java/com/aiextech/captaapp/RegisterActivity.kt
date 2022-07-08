@@ -6,11 +6,15 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.text.TextWatcher
+import android.view.View
 import android.view.Window
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.widget.doOnTextChanged
 import com.aiextech.captaapp.databinding.ActivityRegisterBinding
 import com.aiextech.captaapp.extensions.isEmail
 import com.aiextech.captaapp.utils.CaptchaUI
@@ -34,7 +38,7 @@ class RegisterActivity : AppCompatActivity(), CaptchaLayout.OnButtonClickedListe
         supportActionBar?.title=""
         supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#FFFFFFFF")))
         initViews();
-//        checkUser()
+      checkUser()
     }
 
     companion object {
@@ -90,9 +94,17 @@ class RegisterActivity : AppCompatActivity(), CaptchaLayout.OnButtonClickedListe
                 binding.tilPassword.error = "Password cannot be empty"
                 false
             }
-            binding.tilPassword.text.toString().length <= 8 -> {
+            binding.tilPassword.text.toString().length < 8 -> {
                 clearError()
                 binding.tilPassword.requestFocus()
+                binding.tvStrongPassword.visibility = View.VISIBLE
+                binding.tvStrongPassword.text = "Weak Password"
+                binding.tvStrongPassword.setTextColor(
+                    AppCompatResources.getColorStateList(
+                        this,
+                        R.color.red
+                    )
+                )
                 binding.tilPassword.error = "Password must be more than  8 char long"
                 false
             }
@@ -140,9 +152,15 @@ class RegisterActivity : AppCompatActivity(), CaptchaLayout.OnButtonClickedListe
         }
     }
 
+
+
     private fun checkBox() {
         if (!binding.cbRememberMe.isChecked) {
-            Toast.makeText(this, "User validation for security reason ", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "Captcha validation needed for security reason ",
+                Toast.LENGTH_SHORT
+            ).show()
 
         }else{
             capFunctions()

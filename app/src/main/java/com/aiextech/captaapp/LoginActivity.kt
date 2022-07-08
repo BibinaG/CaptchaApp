@@ -1,19 +1,12 @@
 package com.aiextech.captaapp
 
-import android.app.Dialog
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.view.Window
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.aiextech.captaapp.databinding.ActivityLoginBinding
-import com.aiextech.captaapp.utils.CaptchaUI
 import com.google.firebase.auth.FirebaseAuth
-import com.jacknkiarie.captchaui.CaptchaLayout
 
 
 class LoginActivity : AppCompatActivity(){
@@ -47,7 +40,7 @@ class LoginActivity : AppCompatActivity(){
             }
         }
         binding.tvRegister.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(Intent(this, SignUp::class.java))
         }
         binding.ivCaptcha.setOnClickListener {
 //            showCaptchaDialog()
@@ -67,10 +60,6 @@ class LoginActivity : AppCompatActivity(){
                 binding.tilPassword.requestFocus()
                 binding.tilPassword.error = "Password cannot be empty"
                 clearError()
-                false
-            }
-            binding.tilPassword.length() < 6 -> {
-                binding.tilPassword.error = "Password must be more than  6 char long"
                 false
             }
             else -> {
